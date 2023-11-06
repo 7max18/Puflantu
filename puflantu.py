@@ -1,4 +1,5 @@
 import csv, argparse, re
+from itertools import chain, combinations
 from modifiers import prefixes, suffixes, pronouns, all_pronouns, pronoun_meanings
 
 def search_dict(nested_dict, value, prepath=()):
@@ -27,7 +28,9 @@ def translate(sentence):
     regex_suffixes = [(pattern, re.compile(r"\w+"+pattern+combined_suffixes+r'\b')) for pattern in suffixes.keys()]
     regex_pronouns = [(pattern, re.compile(r"\w+"+combined_pronouns+pattern+r'[aeiouw][^aeiouw]{1,2}')) for pattern in all_pronouns]
     for word in sentence:
-        potential_roots = list()
+        if word in dictionary:
+            full_translation.append(dictionary[word])
+            continue
         pre_translated = ''
         post_translated = ''
         enclitic_translated = ''
@@ -39,66 +42,64 @@ def translate(sentence):
             elif enclitic[-1] == 's':
                 enclitic_translated = '-' + dictionary[enclitic:-1]
             word = word[:word.find('-')]
-        present_prefixes = [exp[0] for exp in regex_prefixes if exp[1].match(word)]
-        present_suffixes = [exp[0] for exp in regex_suffixes if exp[1].match(word)]
-        present_pronouns = [exp[0] for exp in regex_pronouns if exp[1].match(word)]
-        #check for pronouns
-        if any(present_pronouns):
-            for pronoun in present_pronouns:
-                path = search_dict(pronouns, pronoun)
-                if path:
-                    if 'REL' in path[0]:
-                        pre_translated = pronoun_meanings[path[0]][path[1]] + '-' + pre_translated
-                    else:
-                        if 'SUBJ' in path[1]:
-                            pre_translated += pronoun_meanings[path[0]][path[1]] + '-'
-                        elif 'OBJ' in path[1]:
-                            post_translated += '-' + pronoun_meanings[path[0]][path[1]]
-                    i = word.find(pronoun)
-                    word = word[:i] + word[i+len(pronoun):]
-                    if word in dictionary:
-                        full_translation.append(pre_translated+dictionary[word]+post_translated+enclitic_translated)
-        if word in dictionary:
-            continue
-        #check for prefixes
-        if any(present_prefixes):
-            for prefix in present_prefixes:
-                word = word.removeprefix(prefix)
-                pre_translated += prefixes[prefix] + '-'
-                if word in dictionary:
-                    full_translation.append(pre_translated+dictionary[word]+post_translated+enclitic_translated)
-                    break
-        if word in dictionary:
-            continue
-        #check for suffixes
-        if any(present_suffixes):
-            for suffix in present_suffixes:
-                word = word.removesuffix(suffix)
-                post_translated += suffixes[suffix]
-                if word in dictionary:
-                    full_translation.append(pre_translated+dictionary[word]+post_translated+enclitic_translated)
-                    break
         #check for pluralization
         if word[-1] == "w":
             p = re.compile(word[:-1]+r'[aeiouw]')
             for check in dictionary.keys():
                 if p.match(check):
-                    word == check
-                    full_translation.append(pre_translated+dictionary[check]+"-dual"+post_translated+enclitic_translated)
+                    word = check
+                    post_translated = "-dual" + post_translated
                     break
         elif word[-2:] == "we":
             p = re.compile(word[:-2]+r'[aeiouw]')
             for check in dictionary.keys():
                 if p.match(check):
                     word = check
-                    if dictionary[check][-1] in "aeiouy":
-                        full_translation.append(pre_translated+dictionary[check]+"s"+post_translated+enclitic_translated)
+                    if dictionary[check][-1] != "s":
+                        post_translated = "s" + post_translated
                     else:
-                        full_translation.append(pre_translated+dictionary[check]+"es"+post_translated+enclitic_translated)
+                        post_translated = "es" + post_translated
                     break
-        for root in potential_roots:
-            if root[0] in dictionary:
-                full_translation.append(root[1]+root[0]+root[2]+root[3])
+        #check for prefixes, suffixes, and infixes
+        present_prefixes = [exp[0] for exp in regex_prefixes if exp[1].match(word)]
+        present_suffixes = [exp[0] for exp in regex_suffixes if exp[1].match(word)]
+        present_pronouns = [exp[0] for exp in regex_pronouns if exp[1].match(word)]
+        all_candidates = set([x for x in chain(present_prefixes, present_suffixes, present_pronouns)])
+        for candidate in chain.from_iterable(combinations(all_candidates, r) for r in range(len(all_candidates)+1)):
+            root = word
+            for substr in candidate:
+                if substr in present_suffixes:
+                    i = root.rfind(substr)
+                else:
+                    i = root.find(substr)
+                root = root[:i] + root[i+len(substr):]
+            if root in dictionary:
+                for prefix in present_prefixes:
+                    if prefix in candidate:
+                        pre_translated += prefixes[prefix] + '-'
+                for suffix in present_suffixes:
+                    if suffix in candidate:
+                        post_translated += suffixes[suffix]
+                for pronoun in present_pronouns:
+                    if pronoun in candidate:
+                        path = search_dict(pronouns, pronoun)
+                        if path:
+                            if 'REL' in path[0]:
+                                pre_translated = pronoun_meanings[path[0]][path[1]] + '-' + pre_translated
+                            else:
+                                if 'SUBJ' in path[1]:
+                                    pre_translated += pronoun_meanings[path[0]][path[1]] + '-'
+                                elif 'OBJ' in path[1]:
+                                    post_translated += '-' + pronoun_meanings[path[0]][path[1]]
+                word = root
+                break
+            if word in dictionary:
+                break
+        if word in dictionary:
+            if post_translated or enclitic_translated:
+                full_translation.append(pre_translated+dictionary[word].split()[0]+post_translated+enclitic_translated)
+            else:
+                full_translation.append(pre_translated+dictionary[word]+post_translated+enclitic_translated)
         else:
             full_translation.append('UNKNOWN')
     return full_translation
