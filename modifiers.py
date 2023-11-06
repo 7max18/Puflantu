@@ -5,10 +5,8 @@ prefixes = {
 }
 
 suffixes = {
-    'w': 'dual',
-    'we': 'plural',
-    's': 'adverb',
-    'l': 'verb',
+    's': '-adverb',
+    'l': '-verb',
     '\'fi': 'er',
     '\'': 'est',
     '-ro': '\'s',
@@ -75,52 +73,52 @@ pronouns = {
 
 pronoun_meanings = {
     '1ST': {
-        'SG-SUBJ': 'I-',
-        'SG-OBJ': '-me',
-        'DU-SUBJ': 'we-two-',
-        'DU-OBJ': 'us-two-',
+        'SG-SUBJ': 'I',
+        'SG-OBJ': 'me',
+        'DU-SUBJ': 'we-two',
+        'DU-OBJ': 'us-two',
         'PL-SUBJ': 'we',
         'PL-OBJ': 'us'
     },
     '2ND': {
-        'SG-SUBJ': 'you-',
-        'SG-OBJ': 'you-',
-        'DU-SUBJ': 'you-two-',
-        'DU-OBJ': '-you-two',
-        'PL-SUBJ': 'you-all-',
-        'PL-OBJ': '-you-all'
+        'SG-SUBJ': 'you',
+        'SG-OBJ': 'you',
+        'DU-SUBJ': 'you-two',
+        'DU-OBJ': 'you-two',
+        'PL-SUBJ': 'you-all',
+        'PL-OBJ': 'you-all'
     },
     '3RD': {
-        'SG-SUBJ': 'it-',
-        'SG-OBJ': '-it',
-        'DU-SUBJ': 'those-',
-        'DU-OBJ': 'ob',
-        'PL-SUBJ': 'ad',
-        'PL-OBJ': 'od'
+        'SG-SUBJ': 'it',
+        'SG-OBJ': 'it',
+        'DU-SUBJ': 'those-two',
+        'DU-OBJ': 'those-two',
+        'PL-SUBJ': 'they',
+        'PL-OBJ': 'they'
     },
     'THIS': {
-        'SG-SUBJ': 'ita',
-        'SG-OBJ': 'eta',
-        'DU-SUBJ': 'itw',
-        'DU-OBJ': 'etw',
-        'PL-SUBJ': 'itwe',
-        'PL-OBJ': 'etwe'
+        'SG-SUBJ': 'this',
+        'SG-OBJ': 'this',
+        'DU-SUBJ': 'these-two',
+        'DU-OBJ': 'these-two',
+        'PL-SUBJ': 'these',
+        'PL-OBJ': 'these'
     },
     'THAT': {
-        'SG-SUBJ': 'iqa',
-        'SG-OBJ': 'eqa',
-        'DU-SUBJ': 'iqw',
-        'DU-OBJ': 'eqw',
-        'PL-SUBJ': 'iqwe',
-        'PL-OBJ': 'eqwe'
+        'SG-SUBJ': 'that',
+        'SG-OBJ': 'that',
+        'DU-SUBJ': 'those-two',
+        'DU-OBJ': 'those-two',
+        'PL-SUBJ': 'those',
+        'PL-OBJ': 'those'
     },
     'REL': {
-        'SG-SUBJ': 'al',
-        'SG-OBJ': 'ol',
-        'DU-SUBJ': 'an',
-        'DU-OBJ': 'on',
-        'PL-SUBJ': 'ary',
-        'PL-OBJ': 'ory'
+        'SG-SUBJ': 'that',
+        'SG-OBJ': 'that',
+        'DU-SUBJ': 'that',
+        'DU-OBJ': 'that',
+        'PL-SUBJ': 'that',
+        'PL-OBJ': 'that'
     }
 }
 
