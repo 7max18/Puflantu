@@ -1,7 +1,10 @@
 import csv, argparse, re
 from itertools import chain, combinations
 from modifiers import prefixes, suffixes, pronouns, all_pronouns, pronoun_meanings
+import colorama
 from colorama import Fore, Style
+
+colorama.init()
 
 def search_dict(nested_dict, value, prepath=()):
     for k, v in nested_dict.items():
