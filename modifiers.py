@@ -9,7 +9,6 @@ suffixes = {
     'l': '-verb',
     '\'fi': 'er',
     '\'': 'est',
-    '-ro': '\'s',
     'a': 'ing',
     'afe': '-performer',
     'who': '-recipient',

@@ -83,14 +83,14 @@ agi,big
 agi',biggest
 agi'fi,bigger
 agis,largely
-agodrelesa,very-different+R
+agodrelesa,very-different&fluid
 agogwe,too many
 agovekqayu,very-not-easy
-agri,big+R
+agri,big&fluid
 agtacwl,exaggerate
 agtwipwe,so sweet
 aguyi,very-little
-aguyri,very-little+R
+aguyri,very-little&fluid
 agwe,bigs
 agwri,long (duration)
 agyoxuka,superlong
@@ -111,7 +111,7 @@ alroqa,daytime
 alveri,silver (color)
 alvi,weapon
 alvite,silver
-alvurerwe,silver+R
+alvurerwe,silver&fluid
 alvuz,to that extent
 alwpagomu,strawberry
 alzov,in that way
@@ -129,7 +129,7 @@ amqo,exterior
 amqos,outside
 amqwe,exterior
 amradoda,building
-amrelte,yellow+R
+amrelte,yellow&fluid
 amrodad,built
 amroqa,night
 amroqas,at night
@@ -150,7 +150,7 @@ anuva'fi,higher
 anuvwva,high&bodily-action
 apikfe,arrow
 apo,white
-apro,white+R
+apro,white&fluid
 aqe,mere
 aqes,just
 arkahut,pace
@@ -199,7 +199,7 @@ ayegwe,years
 az,be
 aza,being
 azupote,tar
-azuprote'fwe,tar-ier+R
+azuprote'fwe,tar-ier&fluid
 bacev,wait
 bacwyev,we-wait
 bahu,trouble
@@ -221,7 +221,7 @@ besola,song
 besolafe,singer
 besolafwe,singers
 bethu,bitter
-bethurwe,bitter+R
+bethurwe,bitter&fluid
 bevaxva,column
 bial,"find, discover"
 bikve,djinni/genie
@@ -261,7 +261,7 @@ cocwe,wars
 colbao,green
 colbauli,chlorine
 colbawe,green
-colburao,green+R
+colburao,green&fluid
 cuafi,"fresh, new"
 cuafi'fi,newer
 cuafwe,new
@@ -278,7 +278,7 @@ dab,apply
 dag,almost
 dahzelo,saucepan
 dare,plant
-darrwe,plants+R
+darrwe,plants&fluid
 darvaxe,root
 darvaxwe,roots
 darwe,plants
@@ -329,13 +329,13 @@ egaska,sparkling
 egite,dollar
 egitw,two dollars
 egitwe,dollars
-egraska,sparkling+R
+egraska,sparkling&fluid
 ehyo,"real, genuine, actual"
 ehyos,truly
 ej,you two
 eji,type
 ejo,lake
-ejrwe,lakes+R
+ejrwe,lakes&fluid
 elaiza,Elaiza
 elaj,"bend, stretch (v.)"
 elizodwx,you-play-them
@@ -349,8 +349,8 @@ elwxafe,player
 emewle,indigo
 emkigomu,orange (fruit)
 emkixa,orange (color)
-emkurixa,orange+R
-emrewle,indigo+R
+emkurixa,orange&fluid
+emrewle,indigo&fluid
 entuy,"trade, barter"
 entuyice,store
 enxa,water
@@ -360,14 +360,14 @@ enxatodaq,it-submerges-them
 enxombu,wet
 enxotal,it-is-hydrated
 enxuli,hydrogen
-enxura,water+R
+enxura,water&fluid
 enxwnxa,water&bodily-action
 eqa,that
 eqme,leg
 eqmeyossa,lizard
 eqmw,two legs
 eqmwe,legs
-eqra,those+R
+eqra,those&fluid
 eqw,those two
 eqwe,those
 eramovo,ski lift
@@ -382,7 +382,7 @@ es'atipu,bullet
 es'atipwe,bullets
 esaor,change
 esator,it-changes
-espuruywe,royal+R
+espuruywe,royal&fluid
 espuyi,royal
 esuil,help
 et,(future)
@@ -417,7 +417,7 @@ ex'opsi,gun
 ex'opsi',gun-est
 ex'opsi'fi,gun-ier
 exin,should
-exizeyin,you-shouldn’t
+exizeyin,you-shouldn't
 exizin,you-should
 exuri,soft
 exuri'fwe,softers
@@ -428,7 +428,7 @@ eyosafe,tongue
 eyosafwe,tongues
 eyozzove,flavor
 eyozzovwe,flavors
-eyri,small+R
+eyri,small&fluid
 eyuvo,Virgo
 eywe,small
 eywri,short (duration)
@@ -588,7 +588,7 @@ ipmetwe,Pisces
 iporo,"pot, cooking vessel"
 ipro,beard
 iqa,that
-iqrwe,those+R
+iqrwe,those&fluid
 iqwe,those
 iral,pour
 ita,this
@@ -604,7 +604,7 @@ itya,"lone, sole"
 ityas,only
 ityeri,color
 ityerqeyuni,colorless
-ityurerqeyuni,colorless+R
+ityurerqeyuni,colorless&fluid
 itywpece,monopoly
 ix,y’all
 ixi,river
@@ -613,7 +613,7 @@ ixnu,tilt
 ixop,roll
 ixopfe,wheel
 ixopfwe,wheels
-ixri,river+R
+ixri,river&fluid
 iz,you
 izwfu,old
 jabif,they-two-exist
@@ -652,8 +652,8 @@ jigli,carrion
 jineri,gold (color)
 jinerwe,gold
 jinite,gold
-jinreri,gold+R
-jinrerwe,gold+R
+jinreri,gold&fluid
+jinrerwe,gold&fluid
 jiso,room
 joduf,cook-them
 jogwuntu,Chinese
@@ -698,7 +698,7 @@ katak,it-reflects
 katar,it-adds
 kavex,struggle
 kaxo,fluid (n.)
-kaxro,fluid+R
+kaxro,fluid&fluid
 kelu,Kel
 kepuvi,hamburger
 kepzit,prepare
@@ -731,7 +731,7 @@ laday,they-depart
 lahro,penguin
 lahrogbi,Earth
 lahrogbwe,Earth
-lahrurogbwe,earths+R
+lahrurogbwe,earths&fluid
 laksalfa,yeast
 latay,it-departs
 lave,previous
@@ -768,7 +768,7 @@ lwmiv,I-manage
 lwqafwe,spies
 madiju,Madygen
 mafke,oats
-mafkure,oats+R
+mafkure,oats&fluid
 maglame,"blob, mass, loaf"
 mainci,summer
 malo,starch
@@ -880,7 +880,7 @@ od,them
 odeles,differ
 odelesa,difference
 odeleswe,difference
-odrelesa,difference+R
+odrelesa,difference&fluid
 ofoven,collide
 ofrwdu,towel
 ofrwdwe,towels
@@ -894,8 +894,8 @@ ogfatel,it-is-likely
 ogfel,be likely
 oghie,popular
 oghiwe,populars
-oghurie,popular+R
-oghuriwe,populars+R
+oghurie,popular&fluid
+oghuriwe,populars&fluid
 ogi,many
 ogi'fi,more
 ogi'fwe,more
@@ -903,7 +903,7 @@ ogita,multiple
 ogitwe,multiple
 ogje,thick
 ogku,cat
-ogrwe,manys+R
+ogrwe,manys&fluid
 ogviqe,majority
 ogviqes,mostly
 ogviqwe,majorities
@@ -943,7 +943,7 @@ onwmir,I-hear
 orar,slow down
 orbili,jelly
 orbilis,jellily
-orburili,jelly+R
+orburili,jelly&fluid
 orbwr,sometime
 orcal,want
 orcala,wanting
@@ -960,7 +960,7 @@ oritipu,fluorite
 oritiuli,fluorine
 orlerwe,unspecified amount
 orvo,some
-orvuro,some+R
+orvuro,some&fluid
 orvuz,to some degree
 orvwe,some
 orzov,"somehow, indefinite way"
@@ -982,7 +982,7 @@ oyu,bad
 ozaz,speed up
 oze,adequate
 ozo,soup
-ozuro,soup+R
+ozuro,soup&fluid
 pagepu,luxury
 pahi,flat
 pahilame,flat-thing
@@ -1008,11 +1008,11 @@ paiwdo,23328
 paiyo,108
 palem,that-causes
 paliso,milk
-palriso,milk+R
+palriso,milk&fluid
 pamonite,iron
 pamono,red
 pampaliso,cream
-pamrono,red+R
+pamrono,red&fluid
 patem,it-cause
 patog,it-gives
 patumog,it-gives-me
@@ -1058,7 +1058,7 @@ puflantu,"galaxy, galactic"
 pulestosinu,Pleistocene
 punwqite,magnesium
 putqe,chartreuse
-putqure,chartreuse+R
+putqure,chartreuse&fluid
 putqwe,chartreuse
 qabun,they-two-have
 qacepo,"satellite, spacecraft, spaceship"
@@ -1117,7 +1117,7 @@ qudafe,worker
 quk,make
 quka,production
 qukoda,product
-qukrwmi,made+R
+qukrwmi,made&fluid
 qukwmi,made
 qun,have
 quna,having
@@ -1156,14 +1156,14 @@ realwmi,mixed
 regdo,Gemini
 remo,funny
 reqwco,Scorpio
-reraloda,mixture+R
+reraloda,mixture&fluid
 ri,0
 rijo,the two of you’s
 riq,drink
 riqao,that’s
 riqho,beverage
-riqhuro,beverage+R
-riqhurwe,beverages+R
+riqhuro,beverage&fluid
+riqhurwe,beverages&fluid
 riqwao,that group’s
 riqwo,that pair’s
 ritao,this’s
@@ -1236,7 +1236,7 @@ saqwnogbi,Jupiter
 saro,spice
 saroqa,hour
 saroqwe,hours
-sarrwe,spices+R
+sarrwe,spices&fluid
 sat,block
 satalne,morsel
 saten,it-loves
@@ -1244,7 +1244,7 @@ satipu,pebble
 satok,it-ends
 satwlixafe,garnish
 sawepu,pretty good
-sazixro,slightly-acid+R
+sazixro,slightly-acid&fluid
 sazwmswe,bacteria
 se,North
 semzo,Leo
@@ -1307,7 +1307,7 @@ swmw,two things
 swmwe,things
 swtabxaywe,not-transparents
 swtabxi,transparent
-swtrabxi,transparent+R
+swtrabxi,transparent&fluid
 tacalwl,that-speaks
 tacwl,speak
 tacwla,speaking
@@ -1344,7 +1344,7 @@ teilo,Taylor
 teradav,they-suffice
 teratav,it-suffices
 terav,suffice
-teri,tea+R
+teri,tea&fluid
 tex,go
 ti,at
 tibwr,now
@@ -1357,7 +1357,7 @@ timeya,leather
 timov,insert
 timroqa,tonight
 tini,wine
-tinri,wine+R
+tinri,wine&fluid
 tiroqa,today
 tiroqas,on today
 tis,at
@@ -1413,7 +1413,7 @@ twlatix,it-accompanies
 twlix,accompany
 twncite,beryllium
 twpikwaranitu,Tupi-Guarani
-twripe,sugar+R
+twripe,sugar&fluid
 u'u,uhh
 ucvablo,kindergarten
 ugirotipu,shale
@@ -1421,7 +1421,7 @@ uglube,medicine
 uji,salmon
 ukge,dog
 ulime,gas
-ulrimwe,gases+R
+ulrimwe,gases&fluid
 um,me
 umav,inflate
 umeriku,America
@@ -1453,7 +1453,7 @@ utawdo,7776
 utayo,36
 utcuafi,new&light-source
 utqunxe,sun&light-source
-utra,one+R
+utra,one&fluid
 uxfaplo,bottle
 uy,us
 uyi,few
@@ -1540,7 +1540,7 @@ whan,where?
 wibale,egg
 wibalw,two eggs
 wibalwe,eggs
-wibrale,egg+R
+wibrale,egg&fluid
 wirdo,freak
 wladeyoc,they-don’t-eat
 wladoc,they-eat
@@ -1606,7 +1606,7 @@ xirefa,cleanup
 xoale,smoke
 xolun,comfort (v.)
 xolunaqo,comforting
-xorale,smoke+R
+xorale,smoke&fluid
 xoso,happy
 xotilu,car
 xuexzamafe,mage
@@ -1614,12 +1614,12 @@ xuexzamafwe,mages
 xuso,"distant, far"
 xusos,by far
 xwdi,paint
-xwdri,paint+R
-xwdrwe,paints+R
+xwdri,paint&fluid
+xwdrwe,paints&fluid
 xwes,already
 xwoxe,springs
 xwrdi,matrix
-xwroxwe,springs+R
+xwroxwe,springs&fluid
 yad,do
 yada,activity
 yadwe,activities
@@ -1671,14 +1671,14 @@ zajuf,fry
 zal,that-is
 zalma,salt
 zalmeri,sodium
-zalmurwe,salt+R
+zalmurwe,salt&fluid
 zalov,need (extrinsic motive)
 zamgomu,tomato
-zamkuraxwe,sauces+R
+zamkuraxwe,sauces&fluid
 zamoc,hang out
 zampaliso,cheese
 zampaliswlocaite,francium
-zampuraliso,cheesy+R
+zampuraliso,cheesy&fluid
 zamu,Sam
 zantana,Santana
 zaryif,that-are-located
