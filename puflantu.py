@@ -162,7 +162,7 @@ if __name__ == '__main__':
         sentence = args.text.lower()
         p = re.compile(" ")
         if not p.search(sentence):
-            sentence = [sentence]
+            sentence = [''.join([x for x in sentence if x in "\'abcdefghijklmnopqrstuvwxyz-"])]
         else:
             sentence = sentence.split()
             sentence = [''.join([x for x in word if x in "\'abcdefghijklmnopqrstuvwxyz-"]) for word in sentence]
