@@ -1,7 +1,8 @@
 prefixes = {
     'ag': 'big/very',
     'sa': 'small/slightly',
-    'vo': 'anti'
+    'vo': 'anti',
+    '\'': '!'
 }
 
 suffixes = {

@@ -27,14 +27,14 @@ def translate(sentence):
     full_translation = list()
     combined_prefixes = "((" + ")|(".join(prefixes.keys()) + "))*"
     combined_suffixes = "((" + ")|(".join(suffixes.keys()) + "))*"
-    combined_pronouns = "((" + ")|(".join(pronouns.keys()) + "))*"
-    regex_prefixes = [(pattern, re.compile(combined_prefixes+pattern+r'\w+')) for pattern in prefixes.keys()]
-    regex_suffixes = [(pattern, re.compile(r'\w+'+pattern+combined_suffixes+r'\b')) for pattern in suffixes.keys()]
-    regex_pronouns = [(pattern, re.compile(r'\w+'+combined_pronouns+pattern+r'[aeiouw][^aeiouw]{1,2}')) for pattern in all_pronouns]
+    combined_pronouns = "((" + ")|(".join(all_pronouns) + "))*"
+    regex_prefixes = [(pattern, re.compile(r'^'+combined_prefixes+pattern+r'\w+')) for pattern in prefixes.keys()]
+    regex_suffixes = [(pattern, re.compile(r'\w+'+pattern+combined_suffixes+r'$')) for pattern in suffixes.keys()]
+    regex_pronouns = [(pattern, re.compile(r'\w+'+combined_pronouns+r'?'+pattern+combined_pronouns+r'?[aeiouw]([^aeiouw]){1,2}')) for pattern in all_pronouns]
     regex_light = re.compile(r'([aeiouw])[^aeiouw]\1\w*')
     regex_fluid = re.compile(r'\w*[aeiouw]\w*u?r[aeiouw]')
     regex_physical_activity = re.compile(r'([^aeiouw][^aeiouw])w\1[aeiouw]{0,2}$')
-    regex_n_negation = re.compile(r'ay[aeiouw]{0,2}$')
+    regex_n_negation = re.compile(r'ay[aeiouw]{0,2}[^aeiouw]{0,2}$')
     regex_v_negation = re.compile(combined_pronouns+r'?ey'+combined_pronouns+r'?')
     for word in sentence:
         if word in dictionary:
@@ -53,18 +53,15 @@ def translate(sentence):
                     enclitic_translated = '-' + dictionary[enclitic]
             elif enclitic[-1] == 's':
                 enclitic_translated = '-' + dictionary[enclitic:-1]
-            word = word[:word.find('-')]
-        negation_match = regex_n_negation.search(word)
-        if negation_match:
-            pre_translated += "not-"
-            word = word[:negation_match.start()]+word[negation_match.start()+2:]
+            word = word[:word.find('-')]        
         #check for prefixes, suffixes, and infixes
         present_prefixes = [exp[0] for exp in regex_prefixes if exp[1].match(word)]
         present_suffixes = [exp[0] for exp in regex_suffixes if exp[1].match(word)]
-        present_pronouns = [exp[0] for exp in regex_pronouns if exp[1].match(word)]
+        present_pronouns = [exp[0] for exp in regex_pronouns if exp[1].search(word)]
         light_match = regex_light.match(word)
         fluid_match = regex_fluid.match(word)
         physical_match = regex_physical_activity.search(word)
+        n_negation_match = regex_n_negation.search(word)
         v_negation_match = regex_v_negation.search(word)
         all_candidates = set([x for x in chain(present_prefixes, present_suffixes, present_pronouns) if x])
         if light_match:
@@ -76,24 +73,26 @@ def translate(sentence):
                 all_candidates.add(fluid_match.group()[-2:-1])
         if physical_match:
             all_candidates.add(physical_match.group()[:physical_match.group().find("w")+1])
+        if n_negation_match:
+            all_candidates.add("ay")
         if v_negation_match:
             all_candidates.add("ey")
         potential_roots = list()
         for candidate in chain.from_iterable(combinations(all_candidates, r) for r in range(len(all_candidates)+1)):
             root = word
             for substr in candidate:
-                if substr in present_suffixes:
-                    i = root.rfind(substr)
-                else:
-                    i = root.find(substr)
-                root = root[:i] + root[i+len(substr):]
+                root = root.replace(substr, '')
+            print(root)
             if root in dictionary:
                 potential_roots.append((root, candidate))
         if potential_roots:
             root, candidate = min(potential_roots, key=lambda x:len(x[0]))
             for prefix in present_prefixes:
                 if prefix in candidate:
-                    pre_translated += prefixes[prefix] + '-'
+                    if prefix == "\'":
+                        post_translated += "!"
+                    else:
+                        pre_translated += prefixes[prefix] + '-'
             for suffix in present_suffixes:
                 if suffix in candidate:
                     post_translated += suffixes[suffix]
@@ -117,6 +116,9 @@ def translate(sentence):
             if physical_match:
                 if physical_match.group()[:physical_match.group().find("w")+1] in candidate:
                     post_translated += "&bodily-action"
+            if n_negation_match:
+                if "ay" in candidate:
+                    pre_translated += "not-"
             if v_negation_match:
                 if "ey" in candidate:
                     pre_translated += "not-"
@@ -140,10 +142,7 @@ def translate(sentence):
                         post_translated = "es" + post_translated
                     break
         if word in dictionary:
-            if post_translated or enclitic_translated:
-                full_translation.append(pre_translated+dictionary[word].split()[0]+post_translated+enclitic_translated)
-            else:
-                full_translation.append(pre_translated+dictionary[word]+post_translated+enclitic_translated)
+            full_translation.append(pre_translated+dictionary[word]+post_translated+enclitic_translated)
         else:
             full_translation.append(pre_translated+"UNKNOWN"+post_translated+enclitic_translated)
     return full_translation
@@ -161,11 +160,16 @@ if __name__ == '__main__':
     if args.text:
         sentence = args.text.lower()
         p = re.compile(" ")
-        if not p.search(sentence):
-            sentence = [''.join([x for x in sentence if x in "\'abcdefghijklmnopqrstuvwxyz-"])]
-        else:
+        if p.search(sentence):
             sentence = sentence.split()
-            sentence = [''.join([x for x in word if x in "\'abcdefghijklmnopqrstuvwxyz-"]) for word in sentence]
+        else:
+            sentence = [sentence]
+        parsed_sentence = list()
+        for word in sentence:
+            word = ''.join([x for x in word if x in "\'abcdefghijklmnopqrstuvwxyz-"])
+            if word:
+                parsed_sentence.append(word)
+        sentence = parsed_sentence
         translation = translate(sentence)
         if args.natural:
             pass
