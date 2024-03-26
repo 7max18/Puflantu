@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  sqldb:
+    build: ./sqldb
+    restart: unless-stopped
+    environment:
+      - MARIADB_USER=root
+      - MARIADB_PASSWORD=mysqlpassword
+      - MARIADB_ROOT_PASSWORD=mysqlpassword
+      - MARIADB_DATABASE=Puflantu
+    volumes:
+      - db-data:/var/lib/mysql
+    ports: 
+      - "3307:3307"
+    expose:
+      - 3307
+volumes:
+  db-data:
