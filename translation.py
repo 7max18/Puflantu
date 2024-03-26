@@ -38,14 +38,7 @@ def clean_text(sentence):
     return sentence
 
 def print_translated_line(sentence, translation):
-    for i, v in enumerate(sentence):
-        spacing = max(len(v), len(translation[i]))
-        print(Fore.LIGHTBLUE_EX+f'{v:{spacing}}', end='  ')
-    print(Style.RESET_ALL)
-    for i, v in enumerate(translation):
-        spacing = max(len(v), len(sentence[i]))
-        print(f'{v:{spacing}}', end='  ')
-    print()
+    pass
 
 def translate(sentence):
     dictionary = get_dictionary()
@@ -171,38 +164,7 @@ def translate(sentence):
             full_translation.append(pre_translated+'UNKNOWN'+post_translated+enclitic_translated)
     return full_translation
 
-parser = argparse.ArgumentParser(
-    prog='puflantu',
-    description='Puflantu translation utility'
-)
-group = parser.add_mutually_exclusive_group()
-group.add_argument('-t', '--text', nargs='?', help='text to translate from Puflantu')
-#parser.add_argument('-N', '-natural', help='Translate into proper English', dest='natural', action='store_true')
-group.add_argument('-f', '--file', nargs='?', help='translate a file from Puflantu', type=argparse.FileType('r'))
-group.add_argument('-s', '--search', nargs='?', help='search for an English word\'s Puflantu translation')
 
-if __name__ == '__main__':
-    args = parser.parse_args()
-    if args.text:
-        sentence = args.text
-        sentence = clean_text(sentence)
-        translation = translate(sentence)
-        print_translated_line(sentence, translation)
-    elif args.file:
-        for sentence in args.file.readlines():
-            sentence = clean_text(sentence)
-            translation = translate(sentence)
-            print_translated_line(sentence, translation)
-            print()
-    elif args.search:
-        query = args.search.lower()
-        dictionary = get_dictionary()
-        for key, value in dictionary.items():
-            if value.lower() == query:
-                print(f"The Puflantu word for \"{query}\" is \"{key}.\"")
-                break
-        else:
-            print(f"There is no known Puflantu word for \"{query}.\"")
 
 
             
