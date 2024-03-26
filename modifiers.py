@@ -18,6 +18,7 @@ suffixes = {
     'ice': '-location',
     'ede': '-cause',
     'oda': '-result'
+    ''
 }
 
 pronouns = {
