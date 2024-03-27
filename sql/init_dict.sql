@@ -7,7 +7,7 @@ CREATE TABLE dictionary(
     english VARCHAR(64)
 );
 
-LOAD DATA LOCAL INFILE '/home/user/GitHub/Puflantu/server/app/sql/dictionary.csv' 
+LOAD DATA LOCAL INFILE '/home/user/GitHub/Puflantu/sql/dictionary.csv' 
 INTO TABLE dictionary 
 FIELDS TERMINATED BY ',' 
 OPTIONALLY ENCLOSED BY '"' 
