@@ -1,6 +1,6 @@
 import csv, argparse, re, sys
 from itertools import chain, combinations
-from translation.modifiers import prefixes, suffixes, pronouns, all_pronouns, pronoun_meanings
+from modifiers import prefixes, suffixes, pronouns, all_pronouns, pronoun_meanings
 import colorama
 from colorama import Fore, Style
 
