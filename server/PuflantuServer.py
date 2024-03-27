@@ -1,10 +1,9 @@
 import os 
-from app import create_app, db, config
+from app import create_app, db
 import pymysql
-import pandas as pd
-import click
+from flask_migrate import Migrate
 
 pymysql.install_as_MySQLdb()
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
-    
+migrate = Migrate(app, db)

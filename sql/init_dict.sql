@@ -11,4 +11,4 @@ LOAD DATA LOCAL INFILE '/home/user/GitHub/Puflantu/server/app/sql/dictionary.csv
 INTO TABLE dictionary 
 FIELDS TERMINATED BY ',' 
 OPTIONALLY ENCLOSED BY '"' 
-LINES TERMINATED BY '\n';
+LINES TERMINATED BY '\r\n';
